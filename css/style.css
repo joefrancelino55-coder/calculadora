@@ -1,7 +1,5 @@
 /* style.css  */
-/* Reset básico */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 
 * {
   box-sizing: border-box;
@@ -25,9 +23,7 @@ input, select {
   text-align: right;
 }
 
-
-        /* Estilos básicos para o footer */
-        footer {
+       footer {
             background-color: #f2f2f2;
             padding: 20px;
             text-align: center;
@@ -42,7 +38,7 @@ input, select {
             color: #333;
             font-size: 24px; /* Tamanho dos ícones */
         }
-        /* Para ícones, você pode usar Font Awesome ou imagens */
+
         .social-links img {
             width: 30px;
             height: 30px;
@@ -53,12 +49,12 @@ input, select {
 .fa-user {
   color: #333;
   font-size: 24px;
-  transition: color 0.3s ease; /* Efeito hover */
+  transition: color 0.3s ease;
 }
+
 .fa-user:hover {
   color: #007bff;
 }
-
 
 .flex-container {
   display: flex;
@@ -73,7 +69,6 @@ input, select {
   width: 80%;
 }
 
-/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
 @media (max-width: 600px) {
   .flex-container {
     flex-direction: column;
