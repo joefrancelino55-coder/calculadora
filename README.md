@@ -90,3 +90,4 @@ A simple calculator implemented in HTML, CSS, and JavaScript. The goal is to pro
 | When?    | What? |
 |----------|:-------------:|
 | 2026-01-04 | PC SPaulo |
+| 2026-01-08 | Dell win11 - Ubuntu 24.04.01 lts |

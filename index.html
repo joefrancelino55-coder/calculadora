@@ -53,25 +53,89 @@
             <td><button onclick="clickButtons('backspace')">bksp</td>
           </tr>      
     </table>
+
     <h1>Historico</h1>
     <select ID="historyValue" onChange="returnValue(this)">
       <option>0</option>
     </select>
+    <br><br>
+    <fieldset ID="SETUP">
+      <legend>
+        <a onclick="javascript:showHide('formSetup');"  
+            target="_blank" rel="noopener noreferrer" aria-label="github">
+            <i class="fa-sharp fa-solid fa-gear" style="color: yellowgreen;"></i>
+        </a>
+      </legend>
+        <div id="formSetup" style="display: none;">
+          <div class="container">
+          <div>
+              Decimal<br><br>Cor<br>Português<br>English
+          </div>
+          <div>
+              <select ID="nDecimal" style="width: 50%;">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2" selected>2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              </select><br>
+          
+          <input ID="cor" type="color" id="cor" name="colorPicker" 
+              value="#ADFF2F" style="width: 50%;"><br>
+          <input type="radio" name="idioma" id="ptr-br" style="height: 30px;width: 90px;"><br>
+          <input type="radio" name="idioma" id="eng-us" checked style="height: 30px;width: 90px;">
+          </div>
+          </div>
+
+          <input type="checkbox"  id="Preservar" style="display: none;" > 
+          <button ID="Aplicar" onclick="javascript:clickSaveSetup()">Salvar</button>
+          <br><button ID="Aplicar" onclick="javascript:resetSetup()">Padrão</button>
+        </div>
+    </fieldset>
+
+    <fieldset ID="SHARE">
+      <legend>
+      <a onclick="javascript:showHide('tableShare');" 
+        target="_blank" rel="noopener noreferrer" aria-label="github">
+        <i class="fa-solid fa-share" style="color: yellowgreen;"></i>
+      </a>
+      </legend>
+      <div id="tableShare" style="display: none;">
+      <table id="tableShareVal"
+          style="font-family: Verdana; font-size: 14px;">
+        <thead>
+          <tr> 
+            <td>Exp</td> <td>Res</td> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr>  <td>25+10</td> <td>35</td> </tr>
+        </tbody>
+      </table>
+      <button ID="Aplicar" onclick="javascript:copyToHistory()">Copiar</button>
+      </div>
+     </fieldset>
+
+    <fieldset style="text-align: center; padding: 20px; width: 80%;"> 
+        <img src="jefcalk.netlify.app.png"> 
+    </fieldset>
 
   </div>
 
   <div class="flex-item">
-
+    <span id="spanPtr-Br">
       <header style="text-align: center;">
+
         <p>José Emídio Francelino</p>  
+
          <div class="social-links">
               <a href="https://x.com/JoeFrancelino" target="_blank" rel="noopener noreferrer" aria-label="github">
                   <i class="fa-brands fa-x-twitter"></i>
               </a>
-
               <a href="https://github.com/jefBRoutlook" target="_blank" rel="noopener noreferrer" aria-label="github">
                   <i class="fa-brands fa-github"></i>
-              </a>               
+              </a>     
               <a href="https://www.youtube.com/@emidiofbrasil" target="_blank" rel="noopener noreferrer" aria-label="youtube">
                   <i class="fa-brands fa-youtube"></i>
               </a>
@@ -126,13 +190,86 @@
       <br><p>Use <code>Clr</code>/<code>AC</code> para limpar a entrada atual. Se desejar, repita o procedimento para novas operações.</p>
  
       <br><p>Use <code>bksp</code> para apagar o último caractere caso tenha cometido um erro ao digitar.</p>
-  </div>
 
-  
+
+      <br><i class="fa-sharp fa-solid fa-gear" style="color: yellowgreen;"></i>Setup - Pode mudar as configurações.
+      <br><i class="fa-solid fa-share" style="color: yellowgreen;"></i>Share - Permite copiar historico formato Markdown.
+    </span>
+    <span id="spanEng-Us">
+      <header style="text-align: center;">
+
+        <p>José Emídio Francelino</p>  
+
+         <div class="social-links">
+              <a href="https://x.com/JoeFrancelino" target="_blank" rel="noopener noreferrer" aria-label="github">
+                  <i class="fa-brands fa-x-twitter"></i>
+              </a>
+
+              <a href="https://github.com/jefBRoutlook" target="_blank" rel="noopener noreferrer" aria-label="github">
+                  <i class="fa-brands fa-github"></i>
+              </a>               
+              <a href="https://www.youtube.com/@emidiofbrasil" target="_blank" rel="noopener noreferrer" aria-label="youtube">
+                  <i class="fa-brands fa-youtube"></i>
+              </a>
+              <a href="https://ko-fi.com/emidiofbrasil" target="_blank" rel="noopener noreferrer" aria-label="ko-fi">
+                  <img src="https://storage.ko-fi.com/cdn/logomarkLogo.png" />
+              </a>
+              <a href="https://www.linkedin.com/in/josé-francelino-4baa0b29b/" target="_blank" rel="noopener noreferrer" aria-label="ko-fi">
+                  <i class="fa-brands fa-linkedin"></i>
+              </a>
+              <a href="https://nanocode.webnode.page/" target="_blank" rel="noopener noreferrer" aria-label="ko-fi">
+                  <i class="fa-solid fa-blog"></i>
+              </a>
+          </div>
+      </header>
+
+    
+      <p>General description. This page presents a simple calculator with an input display, a result display, and an operation history.
+</p>
+      <br>
+      <h2 id="elementos-da-interface">Interface elements</h2>
+      <br>
+      <ul>
+        <li>
+        
+          <strong>Visor (visor)</strong>: 
+            A read-only text field that shows what you are typing or the current result.
+        </li>
+        <li>
+        
+          <strong>Result (result)</strong>: 
+            Another read-only text field that displays the result of the operation or the calculated value.
+        </li>
+        <li>
+
+          <strong>History</strong>: 
+          History feature that allows you to select an entry from the history and restore a value.
+        </li>
+        <li>
+
+          <strong>Table of button</strong>: The buttons are arranged in 5 rows, with actions associated with numbers.
+
+        </li>
+      </ul>
+      
+      <br>
+      <h2 id="uso-t-pico">Typical usage</h2>
+
+      <br><p>Type the expression using numbers and operators. The display should reflect the expression as you type.</p>
+ 
+      <br><p>When you are ready to calculate, press <code>=</code>. The result will appear in the results display.</p>
+ 
+      <br><p>The history stores previous operations. You can select an entry in the HistoryValue (select) field to restore/remove the corresponding value in the display, according to the function. <code>returnValue()</code>.</p>
+ 
+      <br><p>Use <code>Clr</code>/<code>AC</code> To clear the current entry. If desired, repeat the procedure for new operations.</p>
+ 
+      <br><p>Use <code>bksp</code> to delete the last character in case you made a typing error.</p>
+
+    </span>
+  </div>
+</span>  
 </div>
   <script src="js/main.js"></script>
 
 </body>
 </html>
-
-
